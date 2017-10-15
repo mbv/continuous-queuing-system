@@ -60,11 +60,11 @@ class Queue:
 
 def get_random_time(intensity):
     tmp = random()
-    if tmp < 0.000000001:
-        tmp = 0.000000001
-    if tmp > 0.999999999:
-        tmp = 0.999999999
-    return round(fabs((60. / intensity) * log(tmp)))
+    if tmp < 0.0000000000000000000001:
+        tmp = 0.0000000000000000000001
+    if tmp > 0.9999999999999999999999:
+        tmp = 0.9999999999999999999999
+    return round(fabs((10000. / intensity) * log(tmp)))
 
 
 def simulate(l, m1, m2, n1, n2, count):
@@ -108,9 +108,9 @@ def simulate(l, m1, m2, n1, n2, count):
         all_time += time
         time = min(filter(lambda x: x > 0, [source.need_time, channel1.need_time, channel2.need_time]), default=0)
 
-    potk = (otk + otk1)/gen
-    potk1 = otk1/gen
-    potk2 = otk/processed2
+    potk = (otk + otk1) / gen
+    potk1 = otk1 / gen
+    potk2 = otk / processed2
 
     print("Time: ", all_time)
     print("lambda: ", l)
@@ -129,7 +129,7 @@ n1_to = 6
 
 n2 = 2
 
-count = 100000
+count = 1000000
 
 result = []
 for i in range(n1_from, n1_to + 1):
